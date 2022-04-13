@@ -1,6 +1,7 @@
 import * as crypto from "crypto"
-import { Optional,Model, DataTypes } from "sequelize/types"
+import { Optional,Model, DataTypes } from "sequelize"
 import { sequelizeConnection } from "../config"
+
 
 interface DomainAttributes {
     id: string

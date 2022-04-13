@@ -1,6 +1,6 @@
  import * as crypto from "crypto"
 import Domain from "./domain"
-import { Optional, Model, DataTypes } from "sequelize/types"
+import { Optional, Model, DataTypes } from "sequelize"
 import { sequelizeConnection } from "../config"
 
 interface ProductFeedAttributes {

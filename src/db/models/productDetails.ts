@@ -1,4 +1,4 @@
-import { DataTypes, Model, Optional, STRING } from "sequelize/types"
+import { DataTypes, Model, Optional } from "sequelize"
 import { sequelizeConnection } from "../config"
 import ProductFeed from "./productFeed"
 
@@ -129,7 +129,7 @@ ProductDetails.init({
         allowNull: false,
     },
     categories:{
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
     },
     brand:{
@@ -171,11 +171,11 @@ ProductDetails.init({
         allowNull: false,
     },
     bestFor:{
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
     },
     colors:{
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
     },
     cushioning:{

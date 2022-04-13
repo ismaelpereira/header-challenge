@@ -23,28 +23,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.populateDomain = void 0;
 const crypto = __importStar(require("crypto"));
-const sequelize_1 = require("sequelize");
-const config_1 = require("../config");
-class Domain extends sequelize_1.Model {
-}
-Domain.init({
-    id: {
-        type: sequelize_1.DataTypes.STRING,
-        defaultValue: crypto.randomUUID(),
-        primaryKey: true,
-    },
-    cid: {
-        type: sequelize_1.DataTypes.STRING,
-        defaultValue: crypto.randomUUID(),
-        allowNull: false,
-    },
-    domain: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false
-    }
-}, {
-    sequelize: config_1.sequelizeConnection,
-    paranoid: true
-});
-exports.default = Domain;
+const domainDal = __importStar(require("../dal/domain"));
+const populateDomain = () => {
+    domainDal.create({
+        id: crypto.randomUUID(),
+        cid: crypto.randomUUID(),
+        domain: "https://www.headerinteractive.com/",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    });
+};
+exports.populateDomain = populateDomain;

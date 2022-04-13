@@ -28,60 +28,60 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto = __importStar(require("crypto"));
 const domain_1 = __importDefault(require("./domain"));
-const types_1 = require("sequelize/types");
+const sequelize_1 = require("sequelize");
 const config_1 = require("../config");
-class ProductFeed extends types_1.Model {
+class ProductFeed extends sequelize_1.Model {
 }
 ProductFeed.init({
     id: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         defaultValue: crypto.randomUUID(),
         primaryKey: true
     },
     cid: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         defaultValue: crypto.randomUUID(),
         allowNull: false,
     },
     name: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     owner: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         defaultValue: crypto.randomUUID(),
         allowNull: false,
     },
     parentID: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         defaultValue: crypto.randomUUID(),
         allowNull: true,
     },
     statusID: {
-        type: types_1.DataTypes.INTEGER.UNSIGNED,
+        type: sequelize_1.DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
     typeID: {
-        type: types_1.DataTypes.INTEGER.UNSIGNED,
+        type: sequelize_1.DataTypes.INTEGER.UNSIGNED,
         allowNull: false
     },
     lookupKeys: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true
     },
     domainID: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         references: {
             model: domain_1.default,
             key: "id"
         }
     },
     virtualKey: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true
     },
     rows: {
-        type: types_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true
     },
 }, {
