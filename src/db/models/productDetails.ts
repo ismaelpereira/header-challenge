@@ -1,5 +1,6 @@
-import { Model, Optional } from "sequelize/types"
+import { DataTypes, Model, Optional, STRING } from "sequelize/types"
 import { sequelizeConnection } from "../config"
+import ProductFeed from "./productFeed"
 
 
 interface ProductDetailsAttributes{
@@ -100,50 +101,175 @@ class ProductDetails extends Model<ProductDetailsAttributes,ProductDetailsInput>
 
 ProductDetails.init({
     id: {
-
+        type: DataTypes.STRING,
+        primaryKey: true,
     },
-    referenceId: {},
-    SKU: {},
-    groupId: {},
-    name: {},
-    type: {},
-    categories:{},
-    brand:{},
-    description:{},
-    url:{},
-    price:{},
-    imgUrl:{},
-    inStock:{},
-    keywords:{},
-    displayPrice:{},
-    gender:{},
-    surface:{},
-    bestFor:{},
-    colors:{},
-    cushioning:{},
-    support:{},
-    lng_enUS_name:{},
-    lng_enUS_inStock:{},
-    lng_enUS_url:{},
-    lng_enUS_imgUrl:{},
-    lng_enUS_displayPrice:{},
-    lng_enGB_name:{},
-    lng_enGB_inStock:{},
-    lng_enGB_url:{},
-    lng_enGB_imgUrl:{},
-    lng_enGB_displayPrice:{},
-    lng_frFR_name:{},
-    lng_frFR_inStock:{},
-    lng_frFR_url:{},
-    lng_frFR_imgUrl:{},
-    lng_frFR_displayPrice:{},
-    lng_deDE_name:{},
-    lng_deDE_inStock:{},
-    lng_deDE_url:{},
-    lng_deDE_imgUrl:{},
-    lng_deDE_displayPrice:{},
+    referenceId: {
+        type: DataTypes.STRING,
+        allowNull: false,    
+        references: {
+            model: ProductFeed,
+            key: "id"
+        }
+    },
+    SKU: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    groupId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    type: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    categories:{
+        type: DataTypes.ARRAY,
+        allowNull: false,
+    },
+    brand:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    description:{
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    url:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    price:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    imgUrl:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    inStock:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    keywords:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    displayPrice:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    gender:{ type: DataTypes.STRING,
+        allowNull: false,},
+    surface:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    bestFor:{
+        type: DataTypes.ARRAY,
+        allowNull: false,
+    },
+    colors:{
+        type: DataTypes.ARRAY,
+        allowNull: false,
+    },
+    cushioning:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    support:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enUS_name:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enUS_inStock:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    lng_enUS_url:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enUS_imgUrl:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enUS_displayPrice:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enGB_name:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enGB_inStock:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    lng_enGB_url:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enGB_imgUrl:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_enGB_displayPrice:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_frFR_name:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_frFR_inStock:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    lng_frFR_url:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_frFR_imgUrl:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_frFR_displayPrice:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_deDE_name:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_deDE_inStock:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    lng_deDE_url:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_deDE_imgUrl:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lng_deDE_displayPrice:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
 },{
     sequelize: sequelizeConnection
 })
+
+ProductDetails.belongsTo(ProductFeed)
 
 export default ProductDetails
