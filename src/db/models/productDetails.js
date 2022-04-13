@@ -1,7 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const types_1 = require("sequelize/types");
 const config_1 = require("../config");
+const productFeed_1 = __importDefault(require("./productFeed"));
 class ProductDetails extends types_1.Model {
 }
 ProductDetails.init({
@@ -12,6 +16,10 @@ ProductDetails.init({
     referenceId: {
         type: types_1.DataTypes.STRING,
         allowNull: false,
+        references: {
+            model: productFeed_1.default,
+            key: "id"
+        }
     },
     SKU: {
         type: types_1.DataTypes.STRING,
@@ -170,4 +178,5 @@ ProductDetails.init({
 }, {
     sequelize: config_1.sequelizeConnection
 });
+ProductDetails.belongsTo(productFeed_1.default);
 exports.default = ProductDetails;
