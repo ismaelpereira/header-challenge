@@ -28,12 +28,10 @@ class Domain extends Model<DomainAttributes,DomainInput> implements DomainAttrib
 Domain.init({
     id: {
         type : DataTypes.STRING,
-        defaultValue: crypto.randomUUID(),
         primaryKey: true,
     },
     cid: {
         type: DataTypes.STRING,
-        defaultValue : crypto.randomUUID(),
         allowNull: false,
     },
     domain:{

@@ -35,6 +35,9 @@ app.use(express_1.default.json());
 app.listen(port, () => {
     console.log("API Listening on port 4000");
 });
-(0, populateDomain_1.populateDomain)();
-const domain = domainDal.getAllDomains();
-console.log(domain);
+const test = async () => {
+    await (0, populateDomain_1.populateDomain)();
+    const domain = await domainDal.getAllDomains();
+    console.log(domain);
+};
+test();

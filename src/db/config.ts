@@ -10,8 +10,11 @@ const dbPassword = process.env.DB_PASSWORD
 
 
 export const sequelizeConnection = new Sequelize (dbName,dbUser,dbPassword, {
-    host : dbHost || "localhost",
+    host : dbHost,
     dialect: dbDriver,
-    logging: false,
+    define: {freezeTableName: true}
 })
 
+ sequelizeConnection.sync().then(() => {
+    console.log("db open")
+})

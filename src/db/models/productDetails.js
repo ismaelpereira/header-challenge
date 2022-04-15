@@ -38,7 +38,7 @@ ProductDetails.init({
         allowNull: false,
     },
     categories: {
-        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     brand: {
@@ -80,11 +80,11 @@ ProductDetails.init({
         allowNull: false,
     },
     bestFor: {
-        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     colors: {
-        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     cushioning: {
@@ -178,5 +178,4 @@ ProductDetails.init({
 }, {
     sequelize: config_1.sequelizeConnection
 });
-ProductDetails.belongsTo(productFeed_1.default);
 exports.default = ProductDetails;

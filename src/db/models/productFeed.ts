@@ -43,12 +43,10 @@ class ProductFeed extends Model<ProductFeedAttributes,ProductFeedInput> implemen
 ProductFeed.init({
     id: {
         type: DataTypes.STRING,
-        defaultValue : crypto.randomUUID(),
         primaryKey: true
     },
     cid: {
-        type: DataTypes.STRING,
-        defaultValue : crypto.randomUUID(),
+        type: DataTypes.STRING,       
         allowNull: false,
     },
     name: {
@@ -57,12 +55,10 @@ ProductFeed.init({
     },
     owner: {
         type: DataTypes.STRING,
-        defaultValue : crypto.randomUUID(),
         allowNull: false,
     },
     parentID: {
         type: DataTypes.STRING,
-        defaultValue : crypto.randomUUID(),
         allowNull: true,
     },
     statusID: {
@@ -96,6 +92,6 @@ ProductFeed.init({
     sequelize: sequelizeConnection,
 })
 
-ProductFeed.belongsTo(Domain)
+
 
 export default ProductFeed

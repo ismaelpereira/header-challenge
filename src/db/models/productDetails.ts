@@ -129,7 +129,7 @@ ProductDetails.init({
         allowNull: false,
     },
     categories:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
     },
     brand:{
@@ -171,11 +171,11 @@ ProductDetails.init({
         allowNull: false,
     },
     bestFor:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
     },
     colors:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
     },
     cushioning:{
@@ -270,6 +270,6 @@ ProductDetails.init({
     sequelize: sequelizeConnection
 })
 
-ProductDetails.belongsTo(ProductFeed)
+
 
 export default ProductDetails
