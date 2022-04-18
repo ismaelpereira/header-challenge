@@ -1,15 +1,15 @@
 import { Router } from "express";
 import * as productDetailsDal from "../../db/dal/productDetails";
 
-const productDetails = Router()
+export const productDetailsRouter = Router()
 
 
-productDetails.get("domain/feed/product",() => {
+productDetailsRouter.get("/product",(req,res) => {
     productDetailsDal.getAllProductDetails().then((productDetails) => productDetails);
 })
 
 
-productDetails.get("domain/feed/product/:id",(req) => {
+productDetailsRouter.get("/product/:id",(req) => {
     productDetailsDal.findById(req.params.id).then(productDetails => productDetails)
 })
 
